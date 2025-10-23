@@ -1,0 +1,448 @@
+/* Variables de couleurs */
+:root {
+    --primary-blue: #2563eb;
+    --dark-blue: #1d4ed8;
+    --light-blue: #dbeafe;
+    --primary-orange: #f97316;
+    --dark-orange: #ea580c;
+    --light-orange: #ffedd5;
+    --white: #ffffff;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-600: #4b5563;
+    --gray-800: #1f2937;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --info: #3b82f6;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Container principal */
+  .liste-absences-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--gray-50) 0%, var(--gray-100) 100%);
+    padding-bottom: 2rem;
+  }
+  
+  /* Header Section */
+  .absences-header {
+    background: linear-gradient(135deg, var(--primary-orange) 0%, var(--dark-orange) 100%);
+    color: var(--white);
+    padding: 3rem 0;
+    margin-bottom: 2rem;
+  }
+  
+  .header-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .header-icon {
+    font-size: 3rem;
+    opacity: 0.9;
+  }
+  
+  .header-text h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .header-text p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin: 0;
+  }
+  
+  /* Contenu principal */
+  .absences-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  /* Carte principale */
+  .absences-card {
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+  }
+  
+  /* En-tête de carte */
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 2rem 1rem 2rem;
+    border-bottom: 1px solid var(--gray-200);
+  }
+  
+  .card-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin: 0;
+  }
+  
+  .btn-add-absence {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+    color: var(--white);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .btn-add-absence:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  /* Section de recherche */
+  .search-section {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--gray-200);
+    background: var(--gray-50);
+  }
+  
+  .date-filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .filter-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--gray-800);
+    font-size: 0.9rem;
+  }
+  
+  .filter-icon {
+    color: var(--primary-orange);
+  }
+  
+  .date-inputs {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+    flex-wrap: wrap;
+  }
+  
+  .date-input {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .date-input label {
+    font-size: 0.8rem;
+    color: var(--gray-600);
+    font-weight: 500;
+  }
+  
+  .date-picker {
+    padding: 0.5rem;
+    border: 2px solid var(--gray-300);
+    border-radius: 6px;
+    font-size: 0.9rem;
+  }
+  
+  .btn-date-search {
+    background: var(--primary-blue);
+    color: var(--white);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .btn-date-search:hover {
+    background: var(--dark-blue);
+    transform: translateY(-1px);
+  }
+  
+  /* Container du tableau */
+  .table-container {
+    padding: 0 2rem 2rem 2rem;
+    overflow-x: auto;
+  }
+  
+  /* Tableau */
+  .absences-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+  }
+  
+  .absences-table thead {
+    background: linear-gradient(135deg, var(--gray-800) 0%, var(--gray-600) 100%);
+  }
+  
+  .absences-table th {
+    color: var(--white);
+    font-weight: 600;
+    padding: 1rem 0.75rem;
+    text-align: left;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Colonnes */
+  .col-id { width: 80px; }
+  .col-matricule { width: 120px; }
+  .col-date { width: 120px; }
+  .col-motif { width: 200px; }
+  .col-actions { width: 200px; }
+  
+  /* Lignes du tableau */
+  .absence-row {
+    border-bottom: 1px solid var(--gray-200);
+    transition: background-color 0.2s ease;
+  }
+  
+  .absence-row:hover {
+    background-color: var(--gray-50);
+  }
+  
+  .absence-row td {
+    padding: 1rem 0.75rem;
+    color: var(--gray-800);
+  }
+  
+  .absence-id {
+    font-weight: 600;
+    color: var(--primary-blue);
+  }
+  
+  .matricule-cell, .date-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .cell-icon {
+    color: var(--gray-500);
+    font-size: 0.8rem;
+  }
+  
+  /* Badges de motif */
+  .motif-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  
+  .motif-maladie { background: #fef3c7; color: #92400e; }
+  .motif-personnel { background: #dbeafe; color: #1e40af; }
+  .motif-formation { background: #dcfce7; color: #166534; }
+  .motif-urgence { background: #fee2e2; color: #991b1b; }
+  .motif-other, .motif-autre { background: #e0e7ff; color: #3730a3; }
+  
+  .motif-icon {
+    font-size: 0.7rem;
+  }
+  
+  /* Actions */
+  .absence-actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .btn-edit, .btn-delete {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.875rem;
+    text-decoration: none;
+  }
+  
+  .btn-edit {
+    background: var(--light-blue);
+    color: var(--primary-blue);
+    border: 1px solid var(--primary-blue);
+  }
+  
+  .btn-edit:hover {
+    background: var(--primary-blue);
+    color: var(--white);
+    transform: translateY(-1px);
+  }
+  
+  .btn-delete {
+    background: var(--light-orange);
+    color: var(--dark-orange);
+    border: 1px solid var(--dark-orange);
+  }
+  
+  .btn-delete:hover {
+    background: var(--dark-orange);
+    color: var(--white);
+    transform: translateY(-1px);
+  }
+  
+  .btn-icon {
+    font-size: 0.875rem;
+  }
+  
+  /* Aucune donnée */
+  .no-data {
+    text-align: center;
+    padding: 3rem;
+    color: var(--gray-600);
+  }
+  
+  .no-data-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+  }
+  
+  .no-data h3 {
+    font-size: 1.5rem;
+    margin: 0 0 0.5rem 0;
+    color: var(--gray-800);
+  }
+  
+  .no-data p {
+    margin: 0;
+    font-size: 1rem;
+  }
+  
+  /* Statistiques */
+  .absences-stats {
+    padding: 1.5rem 2rem;
+    border-top: 1px solid var(--gray-200);
+    background: var(--gray-50);
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-orange);
+  }
+  
+  .stat-label {
+    color: var(--gray-600);
+    font-weight: 500;
+    font-size: 0.875rem;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .header-content {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+      padding: 0 1rem;
+    }
+  
+    .header-text h1 {
+      font-size: 2rem;
+    }
+  
+    .absences-content {
+      padding: 0 1rem;
+    }
+  
+    .card-header {
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1.5rem 1rem 1rem 1rem;
+      text-align: center;
+    }
+  
+    .search-section {
+      padding: 1rem;
+    }
+  
+    .date-inputs {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .table-container {
+      padding: 0 1rem 1.5rem 1rem;
+    }
+  
+    .absence-actions {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+  
+    .btn-edit, .btn-delete {
+      justify-content: center;
+      padding: 0.5rem;
+    }
+  
+    .absences-stats {
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .absences-header {
+      padding: 2rem 0;
+    }
+  
+    .header-text h1 {
+      font-size: 1.75rem;
+    }
+  
+    .header-text p {
+      font-size: 1rem;
+    }
+  
+    .no-data {
+      padding: 2rem 1rem;
+    }
+  
+    .no-data-icon {
+      font-size: 3rem;
+    }
+  }
